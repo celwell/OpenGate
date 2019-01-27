@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {Text, TextInput, TouchableOpacity, SafeAreaView, View} from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
-import { styles, colors } from '../css';
+import { styles, colors } from '../../css';
 
-export default class Browse extends Component {
+export default class SearchMap extends Component {
   state = {
     search: "",
     showingSearchResults: false,
@@ -53,7 +53,9 @@ export default class Browse extends Component {
   }
 
   showSearchResults = () => {
-    this.setState({ showingSearchResults: true });
+    this.setState({
+      showingSearchResults: true
+    }, () => this.props.navigation.navigate('SearchSuggestions'));
   };
 
   render() {
@@ -62,55 +64,28 @@ export default class Browse extends Component {
     return (
       <SafeAreaView style={styles.outerWrapper}>
         <View style={styles.container}>
-          <TextInput style={styles.search}
+          <TextInput style={styles.searchInput}
                      placeholder="City, neighborhood, zip"
                      autoComplete="off"
                      autoCorrect={false}
                      clearButtonMode="while-editing"
                      onChangeText={text => this.setState({search: text})}
             onFocus={this.showSearchResults} />
-            <Map region={region} markers={markers} />
+            <MapView style={styles.map}
+                     region={region}
+                     showsUserLocation
+                     showsMyLocationButton={true}>
+              {markers.map(marker => (
+                <Marker
+                  key={marker.id}
+                  coordinate={marker.latlng}
+                  title={marker.title}
+                  description={marker.description}
+                  />
+              ))}         
+      </MapView>
         </View>
       </SafeAreaView>
     );
   }
 }
-
-const Map = ({ region, markers, onRegionChange }) => {
-  return (
-    <MapView style={styles.map}
-             region={region}
-             showsUserLocation
-             showsMyLocationButton={true}>
-      {markers.map(marker => (
-        <Marker
-          key={marker.id}
-          coordinate={marker.latlng}
-          title={marker.title}
-          description={marker.description}
-          />
-      ))}         
-    </MapView>
-  );
-};
-
-const QuerySuggestions = () => {
-  return (
-    <View><Text>Start typing to add a location.</Text></View>
-  );
-};
-
-/*
-const SearchStack = createStackNavigator(
-  {
-    Map: Map,
-    QuerySuggestions: QuerySuggestions,
-  },
-  {
-    headerMode: 'none',
-    navigationOptions: {
-      headerVisible: false,
-    }
-  }
-);
-*/

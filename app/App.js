@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { createBottomTabNavigator, createStackNavigator, createAppContainer } from 'react-navigation';
+import Orientation, { orientation } from 'react-native-orientation';
 import { styles, colors } from './css';
 import Browse from './components/Browse';
 import TradeIn from './components/TradeIn';
@@ -9,22 +10,16 @@ import Profile from './components/Profile';
 import More from './components/More';
 
 export default class App extends Component {
+  componentDidMount() {
+    Orientation.lockToPortrait();
+  }
+  
   render() {
     return (
       <TabNavigator />
     );
   }
 }
-
-const withStyles = (WrappedComponent, stylesheet) => {
-  return class extends Component {
-    render() {
-      return (
-        <WrappedComponent {...this.props} />
-      );
-    }
-  }
-};
 
 const TabNavigator = createAppContainer(createBottomTabNavigator(
   {

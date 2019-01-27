@@ -32,12 +32,15 @@ export const styles = StyleSheet.create({
     fontWeight: '600',
     color: colors.steelBlue,
   },
-  search: {
+  searchInput: {
     fontSize: 16,
     padding: 10,
     margin: 8,
     backgroundColor: '#eeeeee',
     borderRadius: 4,
+  },
+  searchSuggestionsInput: {
+    flex: 1,
   },
   map: {
     flex: 1,
@@ -70,5 +73,29 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '600',
     color: colors.steelBlue,
-  }
+  },
+  buttonDoneSearch: {
+    padding: 10,
+    paddingLeft: 5,
+    alignItems: 'flex-start',
+    backgroundColor: 'transparent',
+  },
+  buttonDoneSearchText: {
+    fontSize: 16,
+    fontWeight: '500',
+    color: colors.steelBlue,
+  },
+  searchSuggestionsInputRow: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
+  searchSuggestionsEmpty: {
+    flex: 1,
+    paddingTop: 40,
+  },
+  searchSuggestionsEmptyText: {
+    fontSize: 16,
+    textAlign: 'center',
+  },
 });
