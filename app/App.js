@@ -61,9 +61,6 @@ const TabNavigator = createAppContainer(createBottomTabNavigator(
       },
     }),
     tabBarOptions: {
-      tabStyle: {
-        height: 56,
-      },
       labelStyle: {
         marginTop: -7,
       },
