@@ -61,11 +61,11 @@ const TabNavigator = createAppContainer(createBottomTabNavigator(
       },
     }),
     tabBarOptions: {
-      // tabStyle: {
-      //   height: 56,
-      // },
+      tabStyle: {
+        height: 56,
+      },
       labelStyle: {
-        marginTop: -8,
+        marginTop: -7,
       },
       activeTintColor: colors.opendoorBlue,
       inactiveTintColor: 'gray',
