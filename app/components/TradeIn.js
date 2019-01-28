@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text, TouchableOpacity, SafeAreaView, View, Image } from 'react-native';
-import { styles, colors } from '../css';
+import { styles } from '../css';
 import fairMarket from '../assets/images/fairMarket.png';
 import hassleFree from '../assets/images/hassleFree.png';
 import moveReady from '../assets/images/moveReady.png';

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Text, TextInput, Image, TouchableOpacity, SafeAreaView, View } from 'react-native';
+import { Text, TextInput, Image, SafeAreaView, View } from 'react-native';
 import { Marker } from 'react-native-maps';
 import ClusteredMapView from 'react-native-maps-super-cluster';
 import { getHouses } from '../../services/api';
-import { styles, colors } from '../../css';
+import { styles } from '../../css';
 import mapPin from '../../assets/images/mapPin.png';
 
 export default class SearchMap extends Component {

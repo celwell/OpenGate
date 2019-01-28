@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, TextInput, TouchableOpacity, SafeAreaView, View } from 'react-native';
 import { searchRegions } from '../../services/api';
-import { styles, colors } from '../../css';
+import { styles } from '../../css';
 
 export default class SearchSuggestions extends Component {
   state = {

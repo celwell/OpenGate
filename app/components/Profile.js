@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text, SafeAreaView, View } from 'react-native';
-import { styles, colors } from '../css';
+import { styles } from '../css';
 
 export default class Profile extends Component {
   render() {
