@@ -8,7 +8,7 @@ import Advisor from './Advisor';
 import Profile from './Profile';
 import More from './More';
 
-const Nav = createAppContainer(
+export default createAppContainer(
   createBottomTabNavigator(
     {
       Browse: Browse,
@@ -51,5 +51,3 @@ const Nav = createAppContainer(
     }
   )
 );
-
-export default Nav;

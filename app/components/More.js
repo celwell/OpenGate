@@ -3,30 +3,25 @@ import { Text, TouchableOpacity, SafeAreaView, View } from 'react-native';
 import { styles } from '../css';
 
 export default class More extends Component {
+  renderButton(text) {
+    return (
+      <TouchableOpacity key={text}
+                        style={styles.buttonSecondary}
+                        onPress={() => alert(`${text}: Not yet implemented.`)}>
+        <Text style={styles.buttonSecondaryText}>
+          {text}
+        </Text>
+      </TouchableOpacity>
+    );
+  }
+  
   render() {
+    const buttons = ['Access a home', 'Sell your home', 'Contact us', 'Change location'];
+    
     return (
       <SafeAreaView style={styles.outerWrapper}>
         <View style={{...styles.container, ...styles.page}}>
-          <TouchableOpacity style={styles.buttonSecondary} onPress={() => alert('Not yet implemented.')}>
-            <Text style={styles.buttonSecondaryText}>
-              Access a home
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonSecondary} onPress={() => alert('Not yet implemented.')}>
-            <Text style={styles.buttonSecondaryText}>
-              Sell your home
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonSecondary} onPress={() => alert('Not yet implemented.')}>
-            <Text style={styles.buttonSecondaryText}>
-              Contact us
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonSecondary} onPress={() => alert('Not yet implemented.')}>
-            <Text style={styles.buttonSecondaryText}>
-              Change location
-            </Text>
-          </TouchableOpacity>
+          {buttons.map(text => this.renderButton(text))}
         </View>
       </SafeAreaView>
     );
