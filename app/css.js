@@ -3,19 +3,20 @@ import { StyleSheet } from 'react-native';
 export const colors = {
   opendoorBlue: '#2E89E2',
   steelBlue: '#4A4F6D',
+  bordering: '#DFDFDF',
 };
 
 export const styles = StyleSheet.create({
   outerWrapper: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#FFFFFF',
   },
   container: {
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'stretch',
-    backgroundColor: '#ffffff',
+    backgroundColor: '#FFFFFF',
   },
   page: {
     padding: 25,
@@ -62,7 +63,7 @@ export const styles = StyleSheet.create({
   buttonPrimaryText: {
     fontSize: 17,
     fontWeight: '500',
-    color: '#ffffff',
+    color: '#FFFFFF',
   },
   buttonSecondary: {
     marginBottom: 8,
@@ -92,7 +93,7 @@ export const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     flex: 1,
     borderLeftWidth: 1,
-    borderColor: '#dfdfdf',
+    borderColor: colors.bordering,
   },
   buttonSegmentedLeft: {
     borderLeftWidth: 0,
@@ -107,6 +108,18 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
+  },
+  searchSuggestions: {
+    flex: 1,
+  },
+  searchSuggestion: {
+    padding: 15,
+    borderBottomColor: '#eee',
+    borderBottomWidth: 1,
+  },
+  searchSuggestionText: {
+    fontSize: 17,
+    fontWeight: '600',
   },
   searchSuggestionsEmpty: {
     flex: 1,
@@ -164,6 +177,6 @@ export const styles = StyleSheet.create({
   },
   horizontalRule: {
     height: 3,
-    backgroundColor: '#dfdfdf',
+    backgroundColor: colors.bordering,
   },
 });

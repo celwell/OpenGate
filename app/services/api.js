@@ -1,4 +1,23 @@
-/* Static API stub */
+const dwellingsBaseUrl = 'https://dwellings-ratelimit.services.opendoor.com/api/v1/';
+// temporarily, hardcode "riverside" market
+const market = 'riverside';
+
+// currently just trims...
+const sanitize = q => q.trim();
+
+export async function searchRegions(q) {
+  try {
+    const response = await fetch(`${dwellingsBaseUrl}regions/search?limit=8&market=${market}&q=${sanitize(q)}&result_format=geojson&simplify_shapes=&min_sq_mi=0.5`);
+    const json = await response.json();
+    return json;
+  } catch (e) {
+    console.log("searchRegions Error: ", e);
+    return false;
+  }
+};
+
+
+/* Static API stub for houses list */
 
 const houses = [
   {
