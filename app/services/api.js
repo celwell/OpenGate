@@ -1,13 +1,19 @@
-const dwellingsBaseUrl = 'https://dwellings-ratelimit.services.opendoor.com/api/v1/';
-// temporarily, hardcode "riverside" market
-const market = 'riverside';
+import queryString from 'query-string';
 
-// currently just trims...
-const sanitize = q => q.trim();
+const dwellingsBaseUrl = 'https://dwellings-ratelimit.services.opendoor.com/api/v1/';
+const defaultMarket = 'riverside';
 
 export async function searchRegions(q) {
   try {
-    const response = await fetch(`${dwellingsBaseUrl}regions/search?limit=8&market=${market}&q=${sanitize(q)}&result_format=geojson&simplify_shapes=&min_sq_mi=0.5`);
+    const params = queryString.stringify({
+      q: q.trim(),
+      market: defaultMarket,
+      result_format: 'geojson',
+      simplify_shapes: '',
+      min_sq_mi: 0.5,
+      limit: 8,
+    });
+    const response = await fetch(`${dwellingsBaseUrl}regions/search?${params}`);
     const json = await response.json();
     return json;
   } catch (e) {
@@ -17,8 +23,8 @@ export async function searchRegions(q) {
 };
 
 
-/* Static API stub for houses list */
 
+/* Static API stub for houses list */
 const houses = [
   {
     id: 0,

@@ -1,5 +1,5 @@
 export const fade = (props) => {
-  const {position, scene} = props;
+  const { position, scene } = props;
   const index = scene.index;
   const translateX = 0;
   const translateY = 0;
@@ -11,6 +11,6 @@ export const fade = (props) => {
 
   return {
     opacity,
-    transform: [{translateX}, {translateY}]
+    transform: [{ translateX }, { translateY }]
   };
 };
