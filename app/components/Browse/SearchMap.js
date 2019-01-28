@@ -1,35 +1,25 @@
 import React, {Component} from 'react';
-import {Text, TextInput, TouchableOpacity, SafeAreaView, View} from 'react-native';
-import MapView, { Marker } from 'react-native-maps';
+import {Text, TextInput, Image, TouchableOpacity, SafeAreaView, View} from 'react-native';
+import { Marker } from 'react-native-maps';
+import ClusteredMapView from 'react-native-maps-super-cluster';
+import { getHouses } from '../../services/api';
 import { styles, colors } from '../../css';
+import mapPin from '../../assets/images/mapPin.png';
 
 export default class SearchMap extends Component {
   state = {
     search: "",
     showingSearchResults: false,
-    markers: [
-      {
-        id: 0,
-        latlng: {
-          latitude: 37.792502,
-          longitude: -122.401860
-        },
-        title: "Test",
-        description: "Test descirption",
-      },
-      {
-        id: 1,
-        latlng: {
-          latitude: 37.793502,
-          longitude: -122.402860
-        },
-        title: "Test",
-        description: "Test descirption",
-      }
-    ],
+    markers: [],
   }
 
-  componentDidMount() {
+  initHouses() {
+    this.setState({
+      markers: getHouses()
+    });
+  }
+
+  initGeolocation() {
     navigator.geolocation.getCurrentPosition(
       ({coords}) => {
         const {latitude, longitude} = coords
@@ -39,18 +29,48 @@ export default class SearchMap extends Component {
             latitude,
             longitude,
           },
-          region: {
-            latitude,
-            longitude,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
-          },
         })
+
+        this.map.mapview.animateToRegion({
+          latitude,
+          longitude,
+          latitudeDelta: 0.9,
+          longitudeDelta: 0.9,
+        }, 0);
       },
       (error) => alert(JSON.stringify(error)),
       {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
     )
   }
+  
+  componentDidMount() {
+    this.initHouses();
+    this.initGeolocation();
+  }
+
+  renderCluster = (cluster, onPress) => {
+    const pointCount = cluster.pointCount,
+          coordinate = cluster.coordinate,
+          clusterId = cluster.clusterId,
+          clusteringEngine = this.map.getClusteringEngine(),
+          clusteredPoints = clusteringEngine.getLeaves(clusterId, 100);
+
+    return (
+      <Marker coordinate={coordinate} onPress={onPress}>
+        <View style={styles.mapCluster}>
+          <Text style={styles.mapClusterText}>
+            {pointCount}
+          </Text>
+        </View>
+      </Marker>
+    );
+  };
+
+  renderMarker = (data) => (
+    <Marker key={data.id} coordinate={data.location}>
+      <Image source={mapPin} style={styles.mapPin} />
+    </Marker>
+  );
 
   showSearchResults = () => {
     this.setState({
@@ -71,19 +91,17 @@ export default class SearchMap extends Component {
                      clearButtonMode="while-editing"
                      onChangeText={text => this.setState({search: text})}
             onFocus={this.showSearchResults} />
-            <MapView style={styles.map}
-                     region={region}
-                     showsUserLocation
-                     showsMyLocationButton={true}>
-              {markers.map(marker => (
-                <Marker
-                  key={marker.id}
-                  coordinate={marker.latlng}
-                  title={marker.title}
-                  description={marker.description}
-                  />
-              ))}         
-      </MapView>
+            <ClusteredMapView
+              style={styles.map}
+              data={markers}
+              initialRegion={{ // fallback if geolocation is disallowed
+                latitude: 34.110055, longitude: -118.281660,
+                latitudeDelta: 0.9, longitudeDelta: 0.9
+              }}
+              showsUserLocation
+              ref={(r) => { this.map = r }}
+              renderMarker={this.renderMarker}
+              renderCluster={this.renderCluster} />        
         </View>
       </SafeAreaView>
     );

@@ -98,4 +98,23 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
   },
+  mapCluster: {
+    width: 30,
+    height: 30,
+    backgroundColor: colors.opendoorBlue,
+    borderColor: '#1969b8',
+    borderWidth: 1,
+    borderRadius: 15,
+    opacity: 0.91,
+  },
+  mapClusterText: {
+    fontSize: 12,
+    color: 'white',
+    textAlign: 'center',
+    lineHeight: 27,
+  },
+  mapPin: {
+    width: 33,
+    height: 33,
+  },
 });
