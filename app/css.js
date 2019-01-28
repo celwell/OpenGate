@@ -22,6 +22,8 @@ export const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
+  },
+  contentText: {
     fontSize: 16,
     fontWeight: '400',
     lineHeight: 22,
@@ -85,6 +87,22 @@ export const styles = StyleSheet.create({
     fontWeight: '500',
     color: colors.steelBlue,
   },
+  buttonSegmented: {
+    padding: 5,
+    backgroundColor: 'transparent',
+    flex: 1,
+    borderLeftWidth: 1,
+    borderColor: '#dfdfdf',
+  },
+  buttonSegmentedLeft: {
+    borderLeftWidth: 0,
+  },
+  buttonSegmentedText: {
+    fontSize: 14,
+    fontWeight: '500',
+    textAlign: 'center',
+    color: colors.opendoorBlue,
+  },
   searchSuggestionsInputRow: {
     flexDirection: 'row',
     justifyContent: 'flex-start',
@@ -116,5 +134,36 @@ export const styles = StyleSheet.create({
   mapPin: {
     width: 33,
     height: 33,
+  },
+  rowContainer: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
+  featureRowImageContainer: {
+    width: 60,
+    paddingTop: 7,
+  },
+  featureRowImage: {
+    width: 45,
+    resizeMode: 'contain',
+  },
+  featureRowDescription: {
+    flex: 1,
+  },
+  featureRowDescriptionText: {
+    fontWeight: '400',
+    color: colors.steelBlue,
+  },
+  featureRowHeading: {
+    paddingBottom: 5,
+  },
+  featureRowHeadingText: {
+    fontWeight: '600',
+    color: colors.steelBlue,
+  },
+  horizontalRule: {
+    height: 3,
+    backgroundColor: '#dfdfdf',
   },
 });

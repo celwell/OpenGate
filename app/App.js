@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { createBottomTabNavigator, createStackNavigator, createAppContainer } from 'react-navigation';
 import Orientation, { orientation } from 'react-native-orientation';
-import { styles, colors } from './css';
+import { colors } from './css';
 import Browse from './components/Browse';
 import TradeIn from './components/TradeIn';
 import Advisor from './components/Advisor';
@@ -36,23 +36,21 @@ const TabNavigator = createAppContainer(createBottomTabNavigator(
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
-      tabBarIcon: ({ focused, horizontal, tintColor }) => {
+      tabBarIcon: ({ tintColor }) => {
         const { routeName } = navigation.state;
-        let IconComponent = Ionicons;
-        let iconName;
-        if (routeName === 'Browse') {
-          iconName = 'ios-compass';
-        } else if (routeName === 'TradeIn') {
-          iconName = 'ios-home';
-        } else if (routeName === 'Advisor') {
-          iconName = 'ios-briefcase';
-        } else if (routeName === 'Profile') {
-          iconName = 'ios-person';
-        } else if (routeName === 'More') {
-          iconName = 'ios-more';
-        }
+        
+        const iconName = (routeName => {
+          switch (routeName) {
+          case 'Browse': return 'ios-compass';
+          case 'TradeIn': return 'ios-home';
+          case 'Advisor': return 'ios-briefcase';
+          case 'Profile': return 'ios-person';
+          case 'More': return 'ios-more';
+          default: return 'ios-more';
+          }
+        })(routeName);
 
-        return <IconComponent name={iconName} size={25} color={tintColor} />;
+        return <Ionicons name={iconName} size={25} color={tintColor} />;
       },
     }),
     tabBarOptions: {

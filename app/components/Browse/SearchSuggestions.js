@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Text, TextInput, TouchableOpacity, SafeAreaView, View} from 'react-native';
+import React, { Component } from 'react';
+import { Text, TextInput, TouchableOpacity, SafeAreaView, View } from 'react-native';
 import { styles, colors } from '../../css';
 
 export default class SearchSuggestions extends Component {
@@ -34,7 +34,7 @@ export default class SearchSuggestions extends Component {
           </View>
           <View style={styles.searchSuggestionsEmpty}>
             <Text style={styles.searchSuggestionsEmptyText}>
-              Start typing to add a location.
+              {search.length ? 'Search results not yet implemented.' : 'Start typing to add a location.'}
             </Text>
           </View>            
         </View>

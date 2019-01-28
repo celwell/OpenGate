@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Text, TextInput, Image, TouchableOpacity, SafeAreaView, View} from 'react-native';
+import React, { Component } from 'react';
+import { Text, TextInput, Image, TouchableOpacity, SafeAreaView, View } from 'react-native';
 import { Marker } from 'react-native-maps';
 import ClusteredMapView from 'react-native-maps-super-cluster';
 import { getHouses } from '../../services/api';

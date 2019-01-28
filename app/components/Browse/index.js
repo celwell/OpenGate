@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Text, TextInput, TouchableOpacity, SafeAreaView, View} from 'react-native';
+import React, { Component } from 'react';
+import { Text, TextInput, TouchableOpacity, SafeAreaView, View } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import SearchMap from './SearchMap';
 import SearchSuggestions from './SearchSuggestions';
