@@ -259,13 +259,6 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RCTOrientation;
 		};
-		31DFEFD421FE60900052D131 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 257B29C196194200B2F6CD50 /* RNShimmer.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5D7E4C681C88C61600B72F0C;
-			remoteInfo = RNShimmer;
-		};
 		31DFEFDD21FE66CA0052D131 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 31DFEFD821FE66CA0052D131 /* FBShimmering.xcodeproj */;
@@ -419,7 +412,6 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = OpenGate/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		1D57E48B410643A39B779441 /* libRNVectorIcons-tvOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libRNVectorIcons-tvOS.a"; sourceTree = "<group>"; };
-		257B29C196194200B2F6CD50 /* RNShimmer.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNShimmer.xcodeproj; path = "../node_modules/react-native-shimmer/ios/RNShimmer.xcodeproj"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* OpenGate-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OpenGate-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* OpenGate-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OpenGate-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -688,14 +680,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		31DFEFD121FE608F0052D131 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				31DFEFD521FE60900052D131 /* libRNShimmer.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		31DFEFD921FE66CA0052D131 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -764,7 +748,6 @@
 				03BCE5DA903A4CF2A3F2FEA7 /* RNGestureHandler.xcodeproj */,
 				D6263E3E430A428CBA2C5D00 /* RNVectorIcons.xcodeproj */,
 				953B0EB522F64436996984B5 /* RCTOrientation.xcodeproj */,
-				257B29C196194200B2F6CD50 /* RNShimmer.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -994,10 +977,6 @@
 					ProjectRef = 03BCE5DA903A4CF2A3F2FEA7 /* RNGestureHandler.xcodeproj */;
 				},
 				{
-					ProductGroup = 31DFEFD121FE608F0052D131 /* Products */;
-					ProjectRef = 257B29C196194200B2F6CD50 /* RNShimmer.xcodeproj */;
-				},
-				{
 					ProductGroup = 31DFEF4C21FC77BA0052D131 /* Products */;
 					ProjectRef = D6263E3E430A428CBA2C5D00 /* RNVectorIcons.xcodeproj */;
 				},
@@ -1193,13 +1172,6 @@
 			fileType = archive.ar;
 			path = libRCTOrientation.a;
 			remoteRef = 31DFEF9521FDAAAA0052D131 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		31DFEFD521FE60900052D131 /* libRNShimmer.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNShimmer.a;
-			remoteRef = 31DFEFD421FE60900052D131 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		31DFEFDE21FE66CA0052D131 /* libFBShimmering.a */ = {
